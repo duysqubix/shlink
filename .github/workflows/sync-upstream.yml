@@ -12,7 +12,7 @@ jobs:
       - name: Sync Fork
         uses: aormsby/fork-sync-with-upstream@v3.4.1
         with:
-          target_sync_branch: main
+          target_sync_branch: develop
           target_repo_token: ${{ secrets.GITHUB_TOKEN }}
           upstream_sync_repo: shlinkio/shlink
-          upstream_sync_branch: main
+          upstream_sync_branch: develop
