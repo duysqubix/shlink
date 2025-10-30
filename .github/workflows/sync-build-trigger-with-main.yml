@@ -1,0 +1,27 @@
+name: Sync build-trigger with main
+
+on:
+  workflow_run:
+    workflows: ["Sync Upstream"]
+    types:
+      - completed
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure Git
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+
+      - name: Merge main into build-trigger
+        run: |
+          git checkout build-trigger
+          git merge origin/main --no-edit
+          git push origin build-trigger
