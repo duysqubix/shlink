@@ -28,5 +28,5 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/shlink:latest
+            ${{ secrets.DOCKER_USERNAME }}/shlink:nightly
             ${{ secrets.DOCKER_USERNAME }}/shlink:${{ github.sha }}
