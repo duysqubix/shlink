@@ -23,5 +23,5 @@ jobs:
       - name: Merge main into build-trigger
         run: |
           git checkout build-trigger
-          git merge origin/main --no-edit
+          git merge origin/develop --no-edit
           git push origin build-trigger
